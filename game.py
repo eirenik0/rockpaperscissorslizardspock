@@ -209,13 +209,12 @@ class Game(object):
                         # o key
                     if event.key == K_o:
                         self.draw_alert("Options:")
-                if event.type == pygame.MOUSEBUTTONDOWN:
-                    if event.button == 1:
-                        if pygame.Rect(START_GAME_BUTTON_RECT).collidepoint(event.pos):
-                            self.start_game()
-                        if pygame.Rect(CLEAR_SAVED_BUTTON_RECT).collidepoint(event.pos):
-                            self.clear_player_status()
-                            self.draw_alert("All save cleaned")
+                if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+                    if pygame.Rect(START_GAME_BUTTON_RECT).collidepoint(event.pos):
+                        self.start_game()
+                    if pygame.Rect(CLEAR_SAVED_BUTTON_RECT).collidepoint(event.pos):
+                        self.clear_player_status()
+                        self.draw_alert("All save cleaned")
                 if event.type == pygame.QUIT:
                     self.handle_quit()
 
@@ -244,25 +243,24 @@ class Game(object):
                         self.play(PAPER)
                     if event.key == K_s:
                         self.play(SCISSORS)
-                if event.type == pygame.MOUSEBUTTONDOWN:
-                    if event.button == 1:
-                        if pygame.Rect(ROCK_BUTTON_RECT).collidepoint(event.pos):
-                            self.play(ROCK)
-                        if pygame.Rect(PAPER_BUTTON_RECT).collidepoint(event.pos):
-                            self.play(PAPER)
-                        if pygame.Rect(SCISSORS_BUTTON_RECT).collidepoint(event.pos):
-                            self.play(SCISSORS)
-                        if pygame.Rect(LIZARD_BUTTON_RECT).collidepoint(event.pos):
-                            self.play(LIZARD)
-                        if pygame.Rect(SPOCK_BUTTON_RECT).collidepoint(event.pos):
-                            self.play(SPOCK)
+                if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+                    if pygame.Rect(ROCK_BUTTON_RECT).collidepoint(event.pos):
+                        self.play(ROCK)
+                    if pygame.Rect(PAPER_BUTTON_RECT).collidepoint(event.pos):
+                        self.play(PAPER)
+                    if pygame.Rect(SCISSORS_BUTTON_RECT).collidepoint(event.pos):
+                        self.play(SCISSORS)
+                    if pygame.Rect(LIZARD_BUTTON_RECT).collidepoint(event.pos):
+                        self.play(LIZARD)
+                    if pygame.Rect(SPOCK_BUTTON_RECT).collidepoint(event.pos):
+                        self.play(SPOCK)
 
-                        if pygame.Rect(MAIN_MENU_BUTTON_RECT).collidepoint(event.pos):
-                            self.save_player_stats(self.player)
-                            self.draw_menus()
+                    if pygame.Rect(MAIN_MENU_BUTTON_RECT).collidepoint(event.pos):
+                        self.save_player_stats(self.player)
+                        self.draw_menus()
 
-                        if pygame.Rect(NEW_GAME_BUTTON_RECT).collidepoint(event.pos):
-                            self.start_game()
+                    if pygame.Rect(NEW_GAME_BUTTON_RECT).collidepoint(event.pos):
+                        self.start_game()
 
                 if event.type == pygame.QUIT:
                     self.handle_quit()
